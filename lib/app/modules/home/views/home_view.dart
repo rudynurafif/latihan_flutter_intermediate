@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 
@@ -24,26 +26,30 @@ class HomeView extends GetView<HomeController> {
     double heightBody = heightDevice - myAppBar().preferredSize.height - paddingTop;
 
     return Scaffold(
-        appBar: myAppBar(),
-        body: Container(
-          width: Get.width * 0.5,
-          height: Get.height * 0.3,
-          color: Colors.amber,
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              double lebarParent = constraints.maxWidth;
-              double tinggiParent = constraints.maxHeight;
-              return Stack(
-                children: [
-                  Container(
-                    width: lebarParent * 0.3,
-                    height: tinggiParent,
-                    color: Colors.red,
-                  )
-                ],
-              );
-            },
-          ),
-        ));
+      appBar: myAppBar(),
+      body: Column(
+        children: [
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxHeight: 150,
+              minHeight: 100,
+              maxWidth: 200,
+              minWidth: 150,
+            ),
+            child: Container(
+              // width: 150,
+              // height: 150,
+              color: Colors.red,
+              child: const Text(
+                "Text asdasdsa adasdasd qweqeqewqwe zxczxczxc",
+                // overflow: TextOverflow.ellipsis,
+                // maxLines: 2,
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
