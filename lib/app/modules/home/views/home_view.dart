@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 
@@ -16,11 +14,6 @@ class HomeView extends GetView<HomeController> {
     double paddingTop = context.mediaQueryPadding.top;
     double paddingBottom = context.mediaQueryPadding.bottom;
 
-    // double widthDevice = MediaQuery.of(context).size.width;
-    // double heightDevice = MediaQuery.of(context).size.height;
-    // double paddingTop = MediaQuery.of(context).padding.top;
-    // double paddingBottom = MediaQuery.of(context).padding.bottom;
-
     AppBar myAppBar() {
       return AppBar(
         title: const Text("Responsive Widgets"),
@@ -33,7 +26,24 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
         appBar: myAppBar(),
         body: Container(
-          width: Get.width,
+          width: Get.width * 0.5,
+          height: Get.height * 0.3,
+          color: Colors.amber,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double lebarParent = constraints.maxWidth;
+              double tinggiParent = constraints.maxHeight;
+              return Stack(
+                children: [
+                  Container(
+                    width: lebarParent * 0.3,
+                    height: tinggiParent,
+                    color: Colors.red,
+                  )
+                ],
+              );
+            },
+          ),
         ));
   }
 }
