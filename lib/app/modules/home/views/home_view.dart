@@ -11,45 +11,51 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    double widthDevice = Get.width;
-    double heightDevice = Get.height;
-    double paddingTop = context.mediaQueryPadding.top;
-    double paddingBottom = context.mediaQueryPadding.bottom;
+    return context.isPortrait
+        // MediaQuery.of(context).orientation == Orientation.portrait
+        ? WidgetPotrait()
+        : WidgetLandcape();
+  }
+}
 
-    AppBar myAppBar() {
-      return AppBar(
-        title: const Text("Responsive Widgets"),
-        centerTitle: true,
-      );
-    }
+class WidgetPotrait extends StatelessWidget {
+  const WidgetPotrait({
+    super.key,
+  });
 
-    double heightBody = heightDevice - myAppBar().preferredSize.height - paddingTop;
-
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
-      body: Column(
-        children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxHeight: 150,
-              minHeight: 100,
-              maxWidth: 200,
-              minWidth: 150,
-            ),
+        appBar: AppBar(
+          title: const Text("Adaptive Widgets"),
+          centerTitle: true,
+        ),
+        body: Center(
             child: Container(
-              // width: 150,
-              // height: 150,
-              color: Colors.red,
-              child: const Text(
-                "Text asdasdsa adasdasd qweqeqewqwe zxczxczxc",
-                // overflow: TextOverflow.ellipsis,
-                // maxLines: 2,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+          height: 300,
+          width: 300,
+          color: Colors.amber,
+        )));
+  }
+}
+
+class WidgetLandcape extends StatelessWidget {
+  const WidgetLandcape({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Adaptive Widgets"),
+          centerTitle: true,
+        ),
+        body: Center(
+            child: Container(
+          height: 150,
+          width: 300,
+          color: Colors.red,
+        )));
   }
 }
