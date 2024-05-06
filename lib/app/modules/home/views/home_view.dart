@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 
@@ -13,30 +15,57 @@ class HomeView extends GetView<HomeController> {
     double paddingTop = MediaQuery.of(context).padding.top;
     double paddingBottom = MediaQuery.of(context).padding.bottom;
 
+    AppBar myAppBar() {
+      return AppBar(
+        title: const Text("Responsive Widgets"),
+        centerTitle: true,
+      );
+    }
+
+    double heightBody = heightDevice - myAppBar().preferredSize.height - paddingTop;
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Flexible"),
-        ),
+        appBar: myAppBar(),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
-                flex: 3,
-                child: Container(
-                  width: widthDevice * 0.5,
-                  color: Colors.red,
-                )),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  width: widthDevice * 0.5,
-                  color: Colors.amber,
-                )),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  width: widthDevice * 0.5,
+            Row(
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
                   color: Colors.green,
-                )),
+                ),
+                const Expanded(
+                  child: ListTile(
+                    tileColor: Colors.amber,
+                    leading: Icon(Icons.title),
+                    title: Text('Title'),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: 50,
+                  color: Colors.red,
+                ),
+              ],
+            ),
+            Container(
+              height: heightBody * 0.5,
+              width: widthDevice * 0.5,
+              color: Colors.red,
+            ),
+            Container(
+              height: heightBody * 0.2,
+              width: widthDevice * 0.5,
+              color: Colors.amber,
+            ),
+            Expanded(
+              child: Container(
+                width: widthDevice * 0.5,
+                color: Colors.green,
+              ),
+            ),
           ],
         ));
   }
