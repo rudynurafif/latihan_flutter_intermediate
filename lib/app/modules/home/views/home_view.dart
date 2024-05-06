@@ -11,10 +11,35 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return context.isPortrait
-        // MediaQuery.of(context).orientation == Orientation.portrait
-        ? WidgetPotrait()
-        : WidgetLandcape();
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        if (orientation == Orientation.portrait) {
+          return Scaffold(
+              appBar: AppBar(
+                title: const Text("Adaptive Widgets"),
+                centerTitle: true,
+              ),
+              body: Center(
+                  child: Container(
+                height: 300,
+                width: 300,
+                color: Colors.amber,
+              )));
+        } else {
+          return Scaffold(
+              appBar: AppBar(
+                title: const Text("Adaptive Widgets"),
+                centerTitle: true,
+              ),
+              body: Center(
+                  child: Container(
+                height: 150,
+                width: 300,
+                color: Colors.red,
+              )));
+        }
+      },
+    );
   }
 }
 
