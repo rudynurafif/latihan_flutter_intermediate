@@ -11,40 +11,12 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        if (orientation == Orientation.portrait) {
-          return Scaffold(
-              appBar: AppBar(
-                title: const Text("Adaptive Widgets"),
-                centerTitle: true,
-              ),
-              body: Center(
-                  child: Container(
-                height: 300,
-                width: 300,
-                color: Colors.amber,
-              )));
-        } else {
-          return Scaffold(
-              appBar: AppBar(
-                title: const Text("Adaptive Widgets"),
-                centerTitle: true,
-              ),
-              body: Center(
-                  child: Container(
-                height: 150,
-                width: 300,
-                color: Colors.red,
-              )));
-        }
-      },
-    );
+    return GetPlatform.isAndroid ? const Android() : const iOS();
   }
 }
 
-class WidgetPotrait extends StatelessWidget {
-  const WidgetPotrait({
+class Android extends StatelessWidget {
+  const Android({
     super.key,
   });
 
@@ -52,7 +24,7 @@ class WidgetPotrait extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Adaptive Widgets"),
+          title: const Text("Android Display"),
           centerTitle: true,
         ),
         body: Center(
@@ -64,8 +36,9 @@ class WidgetPotrait extends StatelessWidget {
   }
 }
 
-class WidgetLandcape extends StatelessWidget {
-  const WidgetLandcape({
+// ignore: camel_case_types
+class iOS extends StatelessWidget {
+  const iOS({
     super.key,
   });
 
@@ -73,7 +46,7 @@ class WidgetLandcape extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Adaptive Widgets"),
+          title: const Text("iOS Display"),
           centerTitle: true,
         ),
         body: Center(
