@@ -26,47 +26,21 @@ class HomeView extends GetView<HomeController> {
 
     return Scaffold(
         appBar: myAppBar(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  color: Colors.green,
+        body: Container(
+          width: 200,
+          height: 100,
+          color: Colors.yellow,
+          child: const Center(
+            child: FittedBox(
+              child: Text(
+                "Helloooooooooooooooo",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
-                const Expanded(
-                  child: ListTile(
-                    tileColor: Colors.amber,
-                    leading: Icon(Icons.title),
-                    title: Text('Title'),
-                  ),
-                ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  color: Colors.red,
-                ),
-              ],
-            ),
-            Container(
-              height: heightBody * 0.5,
-              width: widthDevice * 0.5,
-              color: Colors.red,
-            ),
-            Container(
-              height: heightBody * 0.2,
-              width: widthDevice * 0.5,
-              color: Colors.amber,
-            ),
-            Expanded(
-              child: Container(
-                width: widthDevice * 0.5,
-                color: Colors.green,
               ),
             ),
-          ],
+          ),
         ));
   }
 }
