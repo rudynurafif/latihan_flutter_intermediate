@@ -25,22 +25,102 @@ class HomeView extends GetView<HomeController> {
     double heightBody = heightDevice - myAppBar().preferredSize.height - paddingTop;
 
     return Scaffold(
-        appBar: myAppBar(),
-        body: Container(
-          width: 200,
-          height: 100,
-          color: Colors.yellow,
-          child: const Center(
-            child: FittedBox(
-              child: Text(
-                "Helloooooooooooooooo",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+      appBar: myAppBar(),
+      body: Wrap(
+        direction: Axis.vertical,
+        children: [
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
           ),
-        ));
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+          Container(
+            margin: EdgeInsets.all(10),
+            width: widthDevice * 0.2,
+            height: 35,
+            color: Colors.amber,
+          ),
+        ],
+      ),
+    );
   }
 }
